@@ -1,5 +1,6 @@
 package com.spring.practice.entity;
 
+import com.spring.practice.dto.MemberDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +21,12 @@ public class MemberEntity {
 
     @Column
     private String memberName;
+
+    public static MemberEntity toMemberEntity (MemberDTO memberDTO) {
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+        memberEntity.setMemberName(memberDTO.getMemberName());
+        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        return memberEntity;
+    }
 }
