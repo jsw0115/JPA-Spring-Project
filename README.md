@@ -1,5 +1,9 @@
 # JPA-Spring-Project
+<<<<<<< HEAD
 
+=======
+---
+>>>>>>> 318726c... Create README.md
 
 ## 개발 환경 
 1. IDE : Intellij IDEA Community
