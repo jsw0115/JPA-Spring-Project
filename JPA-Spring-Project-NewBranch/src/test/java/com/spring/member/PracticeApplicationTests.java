@@ -1,4 +1,4 @@
-package com.spring.practice;
+package com.spring.member;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

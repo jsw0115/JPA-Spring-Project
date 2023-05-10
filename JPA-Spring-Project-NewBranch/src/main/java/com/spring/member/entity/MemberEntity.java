@@ -1,6 +1,6 @@
-package com.spring.practice.entity;
+package com.spring.member.entity;
 
-import com.spring.practice.dto.MemberDTO;
+import com.spring.member.dto.MemberDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

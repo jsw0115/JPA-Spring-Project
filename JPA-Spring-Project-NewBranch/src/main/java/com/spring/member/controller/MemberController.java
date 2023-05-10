@@ -1,7 +1,7 @@
-package com.spring.practice.controller;
+package com.spring.member.controller;
 
-import com.spring.practice.dto.MemberDTO;
-import com.spring.practice.service.MemberService;
+import com.spring.member.dto.MemberDTO;
+import com.spring.member.service.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class MemberController {
     // 회원가입 페이지 출력 요청
     @GetMapping("/member/save")
     public String saveForm() {
-        return "save";
+        return "member/save";
     }
 
     @PostMapping("/member/save")
@@ -32,12 +32,12 @@ public class MemberController {
         System.out.println("memberDTO : " + memberDTO);
         memberService.save(memberDTO);
 
-        return "login";
+        return "member/login";
     }
 
     @GetMapping("/member/login")
     public String loginForm() {
-        return "login";
+        return "member/login";
     }
 
     @PostMapping("/member/login")
@@ -46,10 +46,10 @@ public class MemberController {
         if (loginResult != null) {
             // login 성공
             session.setAttribute("loginEmail", loginResult.getMemberEmail());
-            return "main";
+            return "member/main";
         } else {
             // login 실패
-            return "login";
+            return "member/login";
         }
     }
 
@@ -58,14 +58,14 @@ public class MemberController {
         List<MemberDTO> memberDTOList = memberService.findAll();
         // 어떠한 HTML로 가져갈 데이터가 있다면 model 사용
         model.addAttribute("memberList", memberDTOList);
-        return "list";
+        return "member/list";
     }
 
     @GetMapping("/member/{id}")
     public String findById (@PathVariable Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("member", memberDTO);
-        return "detail";
+        return "member/detail";
     }
 
     @GetMapping("/member/update")
@@ -73,7 +73,7 @@ public class MemberController {
         String myEmail = (String) session.getAttribute("loginEmail");
         MemberDTO memberDTO = memberService.updateForm(myEmail);
         model.addAttribute("updateMember", memberDTO);
-        return "update";
+        return "member/update";
     }
 
     @PostMapping("/member/update")

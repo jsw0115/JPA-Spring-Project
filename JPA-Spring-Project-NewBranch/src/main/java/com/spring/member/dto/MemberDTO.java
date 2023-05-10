@@ -1,7 +1,6 @@
-package com.spring.practice.dto;
+package com.spring.member.dto;
 
-import com.spring.practice.entity.MemberEntity;
-import com.spring.practice.repository.MemberRepository;
+import com.spring.member.entity.MemberEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
