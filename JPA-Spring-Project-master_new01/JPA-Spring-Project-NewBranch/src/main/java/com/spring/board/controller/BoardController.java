@@ -38,7 +38,7 @@ public class BoardController {
     }
 
     @GetMapping ("/{id}")
-    public String findById(@PathVariable Long id, Model model, @PageableDefault(page = 1) Pageable pageable) {
+    public String findById(@PathVariable Long id, Model model, Pageable pageable) {
         /*
             해당 게시글의 조회수를 하나 올리고
             게시글 데이터를 가져와 detail.html 출력

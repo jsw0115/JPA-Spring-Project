@@ -12,8 +12,8 @@ import lombok.Setter;
 @Setter
 @Table(name = "board_table")
 public class BoardEntity extends BaseEntity {
-    @Id // pk 컬럼 지정
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment (mysql 기준)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 20, nullable = false)  // 크기 : 20, not null
