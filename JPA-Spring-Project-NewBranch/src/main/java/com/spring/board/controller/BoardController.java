@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor    // 생성자 주입 방법 中 1 -> final 혹은 @NotNull 필드 생성자 자동 생성 lombok 어노테이션
 @RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;

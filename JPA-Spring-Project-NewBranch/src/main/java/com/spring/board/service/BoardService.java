@@ -17,6 +17,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
+
     private final BoardRepository boardRepository;
     public void save(BoardDTO boardDTO) {
         BoardEntity boardEntity = BoardEntity.toSaveEntity(boardDTO);
