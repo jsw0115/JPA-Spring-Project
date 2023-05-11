@@ -12,8 +12,8 @@ import lombok.Setter;
 @Setter
 @Table(name = "board_table")
 public class BoardEntity extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // pk 컬럼 지정
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment (mysql 기준)
     private Long id;
 
     @Column(length = 20, nullable = false)  // 크기 : 20, not null
@@ -38,6 +38,17 @@ public class BoardEntity extends BaseEntity {
         boardEntity.setBoardTitle(boardDTO.getBoardTitle());
         boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(0);
+        return boardEntity;
+    }
+
+    public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setId(boardDTO.getId());
+        boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+        boardEntity.setBoardPass(boardDTO.getBoardPass());
+        boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+        boardEntity.setBoardContents(boardDTO.getBoardContents());
+        boardEntity.setBoardHits(boardEntity.getBoardHits());
         return boardEntity;
     }
 }

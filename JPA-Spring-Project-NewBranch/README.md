@@ -27,6 +27,11 @@
    4) 수정 처리
 5. 글삭제 ( /board/delete/{id} )
 6. 페이징처리 ( /board/paging )
+   - /board/paging?page=2
+   - /board/paging/2
+   - 게시글 14
+     - 한 페이지 5개씩 => 3개
+     - 한페이지에 3개씩 => 5개
 
 ---
 
