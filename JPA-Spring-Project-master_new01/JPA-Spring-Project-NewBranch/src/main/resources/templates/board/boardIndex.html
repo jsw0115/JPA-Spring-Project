@@ -33,6 +33,10 @@
         margin: 0 auto;
         padding: 10px;
     }
+    .cent {
+        text-align: center;
+        align: center;
+    }
     /* Footer */
     footer {
         background-color: #6772e5;
@@ -53,7 +57,7 @@
     .submit-btn:hover {
         background-color: #4455bb;
     }
-  </style>
+    </style>
 </head>
 <body>
 <!-- Header -->
@@ -67,28 +71,30 @@
     <a href="/board">게시판</a>
 </nav>
 <main>
-  <button onclick="saveReq()">글작성</button>
-<!--  <a href="/board/save">글작성(링크)</a>-->
-<!--  <button onclick="listReq()">글목록</button>-->
-  <button onclick="pagingReq()">페이징목록</button>
+    <div class="cent">
+        <button class="submit-btn" onclick="saveReq()">글작성</button>
+    <!--  <a href="/board/save">글작성(링크)</a>-->
+    <!--  <button onclick="listReq()">글목록</button>-->
+        <button class="submit-btn" onclick="pagingReq()">페이징목록</button>
+    </div>
 </main>
 <!-- Footer -->
 <footer>
-  &copy; 2023 JSW. MYSITE
+    &copy; 2023 JSW. MYSITE
 </footer>
 </body>
 <script>
 //  function saveReq() {
 //
 //  }
-  const saveReq = () => {
-    location.href="/board/save";
-  }
-  const listReq = () => {
-    location.href="/board/";
-  }
-  const pagingReq = () => {
-    location.href="/board/paging";
-  }
+    const saveReq = () => {
+        location.href="/board/save";
+    }
+    const listReq = () => {
+        location.href="/board/";
+    }
+    const pagingReq = () => {
+        location.href="/board/paging";
+    }
 </script>
 </html>

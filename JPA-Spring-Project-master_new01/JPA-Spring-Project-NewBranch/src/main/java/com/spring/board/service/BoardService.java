@@ -65,7 +65,7 @@ public class BoardService {
 
     public Page<BoardDTO> paging(Pageable pageable) {
         int page = pageable.getPageNumber() - 1;    //   // => application.yml에서 추후 받기
-        int pageLimit = 3;  // 한 페이지에 보여줄 글 갯수 => application.yml에서 추후 받기
+        int pageLimit = 5;  // 한 페이지에 보여줄 글 갯수 => application.yml에서 추후 받기
         // 한 페이지당 3개씩 글 보여주고 정렬 기준은 id 기준으로 내림차순 정렬
         // page 위치에 있는 값은 0부터 시작
         Page<BoardEntity> boardEntities =
