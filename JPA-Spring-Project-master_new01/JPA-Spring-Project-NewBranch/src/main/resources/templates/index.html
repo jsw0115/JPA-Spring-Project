@@ -51,6 +51,7 @@
             height: 40px;
             border: none;
             cursor: pointer;
+            margin: 10px;
         }
         .submit-btn:hover {
             background-color: #4455bb;
@@ -61,9 +62,12 @@
 <div class="container" style="margin-top: 100px;">
     <h2 align="center">Hello Spring Boot</h2>
     <div style="text-align: center;">
-        <a href="/member/save" class="submit-btn">회원가입</a> <br>
-        <a href="/member/login" class="submit-btn">로그인</a> <br>
-        <a href="/member/" class="submit-btn">회원목록</a> <br>
+<!--        <a href="/member/save" class="submit-btn">회원가입</a> <br>-->
+<!--        <a href="/member/login" class="submit-btn">로그인</a> <br>-->
+<!--        <a href="/member/" class="submit-btn">회원목록</a> <br>-->
+        <button class="submit-btn" onclick="location.href='/member/save'">회원가입</button>
+        <button class="submit-btn" onclick="location.href='/member/login'">로그인</button>
+        <button class="submit-btn" onclick="location.href='/member/'">회원목록</button>
     </div>
 </div>
 
