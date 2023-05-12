@@ -6,39 +6,39 @@
     <style>
     /* Header */
     header {
-      background-color: #6772e5;
-      padding: 10px;
+        background-color: #6772e5;
+        padding: 10px;
     }
     header h1 {
-      color: #fff;
-      font-size: 28px;
+        color: #fff;
+        font-size: 28px;
     }
     /* Navigation */
     nav {
-      background-color: #fff;
-      border-bottom: 1px solid #d5d5d5;
-      padding: 10px;
+        background-color: #fff;
+        border-bottom: 1px solid #d5d5d5;
+        padding: 10px;
     }
     nav a {
-      color: #6772e5;
-      text-decoration: none;
-      margin-right: 10px;
+        color: #6772e5;
+        text-decoration: none;
+        margin-right: 10px;
     }
     nav a:hover {
-      text-decoration: underline;
+        text-decoration: underline;
     }
     /* Main content */
     main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 10px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
     }
     /* Footer */
     footer {
-      background-color: #6772e5;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
+        background-color: #6772e5;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
     }
     .submit-btn {
         background-color: #5469d4;
@@ -93,9 +93,9 @@
             <td th:text="${board.boardContents}"></td>
         </tr>
     </table>
-    <button onclick="listReq()">목록</button>
-    <button onclick="updateReq()">수정</button>
-    <button onclick="deleteReq()">삭제</button>
+    <button class="submit-btn" onclick="listReq()">목록</button>
+    <button class="submit-btn" onclick="updateReq()">수정</button>
+    <button class="submit-btn" onclick="deleteReq()">삭제</button>
 </main>
 <!-- Footer -->
 <footer>
