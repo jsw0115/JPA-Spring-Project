@@ -38,7 +38,7 @@ public class BoardController {
 
     @GetMapping ("/")
     public String findAll (Model model) {
-        // DB에서 전체 게시글 데이터를 가져와 list.html 에 보여줌
+        // DB에서 전체 게시글 데이터를 가져와 boardList.html 에 보여줌
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
         return "board/list";
