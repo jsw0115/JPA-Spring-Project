@@ -4,9 +4,11 @@ import com.spring.member.dto.MemberDTO;
 import com.spring.member.entity.MemberEntity;
 import com.spring.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.DuplicateFormatFlagsException;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,9 +16,16 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
-    public void save(MemberDTO memberDTO) {
+    public void save (MemberDTO memberDTO) {
         // 1. dto -> entity 변환
         // 2. repository의 save 메서드 호출
+        String memberEmail = memberDTO.getMemberEmail();
+        Optional<MemberEntity> byMemberEntity = memberRepository.findByMemberEmail(memberEmail);
+        if (byMemberEntity.isPresent()) {
+            throw new DuplicateKeyException("이미 사용 중인 이메일 입니다 !!");
+        }
+
+        // 중복되지 않은 경우 저장
         MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
         memberRepository.save(memberEntity);
         // repository의 save 메서드 호출 ( 조건 : entity 객체를 넘겨줘야 함 )
@@ -86,5 +95,16 @@ public class MemberService {
 
     public void deleteById(Long id) {
         memberRepository.deleteById(id);
+    }
+
+    public String emailCheck(String memberEmail) {
+        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberEmail);
+        if (byMemberEmail.isPresent()) {
+            // 조회결과가 있다 -> 사용할 수 없다.
+            return null;
+        } else {
+            // 조회결과가 없다 -> 사용할 수 있다.
+            return "ok";
+        }
     }
 }

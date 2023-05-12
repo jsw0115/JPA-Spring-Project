@@ -24,14 +24,14 @@ public class BoardController {
     private final BoardService boardService;
     @GetMapping ("/save")
     public String saveForm() {
-        return "board/save";
+        return "board/boardSave";
     }
 
     @PostMapping ("/save")
-    public String save (@ModelAttribute BoardDTO boardDTO, @ModelAttribute MemberDTO memberDTO, HttpSession session) {
-        MemberDTO loginResult = memberService.login(memberDTO);
+    public String save (@ModelAttribute BoardDTO boardDTO) {
+//        MemberDTO loginResult = memberService.login(memberDTO);
         System.out.println("BoardDTO : " + boardDTO);
-        session.setAttribute("loginName", loginResult.getMemberName());
+//        session.setAttribute("loginName", loginResult.getMemberName());
         boardService.save(boardDTO);
         return "board/boardIndex";
     }
@@ -41,7 +41,7 @@ public class BoardController {
         // DB에서 전체 게시글 데이터를 가져와 boardList.html 에 보여줌
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
-        return "board/list";
+        return "board/boardList";
     }
 
     @GetMapping ("/{id}")
@@ -54,21 +54,21 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", pageable.getPageNumber());
-        return "board/detail";
+        return "board/boardDetail";
     }
 
     @GetMapping("/update/{id}")
     public String updateFormat (@PathVariable Long id, Model model) {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("boardUpdate", boardDTO);
-        return "board/update";
+        return "board/boardUpdate";
     }
 
     @PostMapping("/update")
     public String update (@ModelAttribute BoardDTO boardDTO, Model model) {
         BoardDTO board = boardService.update(boardDTO);
         model.addAttribute("board", board);
-        return "board/detail";
+        return "board/boardDetail";
     }
 
     @GetMapping("/delete/{id}")
@@ -95,6 +95,6 @@ public class BoardController {
         model.addAttribute("boardList", boardList);
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
-        return "board/paging";
+        return "board/boardPaging";
     }
 }

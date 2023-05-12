@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous">
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,12 +62,16 @@
     </style>
 </head>
 <body>
+<!-- action속성: form에 작성한 데이터를 어디로 보낼지 지정 -->
 <form action="/member/save" method="post">
     <h1>회원가입</h1>
+    <!-- name속성: 서버로 전송할 때 변수이름의 역할 -->
     <label>
         이메일
-        <input type="text" name="memberEmail">
+        <input type="text" name="memberEmail" id="memberEmail" onblur="emailCheck()"> <br>
+
     </label>
+    <p id="check-result"></p>
     <label>
         비밀번호
         <input type="password" name="memberPassword">
@@ -72,9 +81,37 @@
         <input type="text" name="memberName">
     </label>
     <input type="submit" value="회원가입">
-    <div class="terms">
-        가입함으로써 당사의 <a href="#">서비스 이용 약관</a>에 동의하시는 것으로 간주됩니다.
-    </div>
+
 </form>
 </body>
+<script th:inline="javascript">
+    const emailCheck = () => {
+        const email = document.getElementById("memberEmail").value;
+        const checkResult = document.getElementById("check-result");
+        console.log("입력값: ", email);
+        $.ajax({
+            // 요청방식: post, url: "email-check", 데이터: 이메일
+            type: "post",
+            url: "/member/email-check",
+            data: {
+                "memberEmail": email
+            },
+            success: function(res) {
+                console.log("요청성공", res);
+                if (res == "ok") {
+                    console.log("사용가능한 이메일");
+                    checkResult.style.color = "green";
+                    checkResult.innerHTML = "사용가능한 이메일";
+                } else {
+                    console.log("이미 사용중인 이메일");
+                    checkResult.style.color = "red";
+                    checkResult.innerHTML = "이미 사용중인 이메일";
+                }
+            },
+            error: function(err) {
+                console.log("에러발생", err);
+            }
+        });
+    }
+</script>
 </html>
