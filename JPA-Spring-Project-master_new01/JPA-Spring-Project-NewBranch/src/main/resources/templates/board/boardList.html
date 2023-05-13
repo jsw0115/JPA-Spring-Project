@@ -33,6 +33,10 @@
       margin: 0 auto;
       padding: 10px;
     }
+    /* 날짜 형식 */
+    .tbl-content td[style^="width"]:nth-child(4) {
+      font-family: monospace;
+    }
     /* Footer */
     footer {
       background-color: #6772e5;
@@ -67,14 +71,15 @@
   <a href="/board">게시판</a>
 </nav>
 <main>
-  <table>
+  <div class="tbl-content">
+  <table style="width: 100%">
     <tr>
-      <th>id</th>
-      <th>title</th>
+      <th style="width: 10%">id</th>
+      <th style="width: 25%">title</th>
 <!--      <th>title(||쓰지 않은 경우)</th>-->
-      <th>writer</th>
-      <th>date</th>
-      <th>hits</th>
+      <th style="width: 25%">writer</th>
+      <th style="width: 20%">date</th>
+      <th style="width: 10%">hits</th>
     </tr>
     <tr th:each="board: ${boardList}">
       <td th:text="${board.id}"></td>
@@ -82,11 +87,12 @@
       <!-- |~| : thymeleaf 관련 자료 : 링크로 넘어갈 때 어떻게 잘못 넘어감... 그래서 ||로 감싸줘야함... ??? -->
 <!--      <td><a th:href="@{/board/${board.id}}" th:text="${board.boardTitle}"></a></td>-->
       <td th:text="${board.boardWriter}"></td>
-      <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
       <!-- 시간 형식 설정 -->
+      <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
       <td th:text="${board.boardHits}"></td>
     </tr>
   </table>
+  </div>
   </main>
   <!-- Footer -->
   <footer>

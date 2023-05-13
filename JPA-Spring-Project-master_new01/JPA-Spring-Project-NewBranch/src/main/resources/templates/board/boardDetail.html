@@ -49,6 +49,36 @@
         display: flex;
         margin: 0 auto;
     }
+    .tbl-header table {
+        background-color: #5469d4;
+        color: #ffffff;
+        border-collapse: collapse;
+    }
+
+    .tbl-header th,
+    .tbl-header td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #6772e5;
+    }
+
+    .tbl-content table {
+        background-color: #ffffff;
+        color: #4455bb;
+        border-collapse: collapse;
+    }
+
+    .tbl-content th,
+    .tbl-content td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #6772e5;
+    }
+
+    /* 날짜 형식 */
+    .tbl-content td[style^="width"]:nth-child(2) {
+        font-family: monospace;
+    }
     th {
         padding: 20px 15px;
         text-align: left;
@@ -66,6 +96,44 @@
         color: #000;
         border-bottom: solid 1px rgba(255,255,255,0.1);
     }
+        /* 댓글 작성 부분 스타일 */
+    #comment-write {
+        background-color: #ffffff;
+        color: #ffffff;
+        padding: 10px;
+    }
+
+    #comment-write input[type="text"], #comment-write button {
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    /* 댓글 출력 부분 스타일 */
+    #comment-list {
+        margin-top: 20px;
+    }
+
+    #comment-list table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #comment-list th, #comment-list td {
+        padding: 10px;
+        border: 1px solid #6772e5;
+    }
+
+    #comment-list th {
+        background-color: #5469d4;
+        color: #ffffff;
+    }
+    /* 날짜 형식 */
+    .comment-list td[style^="width"]:nth-child(4) {
+        font-family: monospace;
+    }
     /* Footer */
     footer {
         background-color: #6772e5;
@@ -73,7 +141,18 @@
         padding: 10px;
         text-align: center;
     }
-    .submit-btn {
+    .submit-btn{
+        background-color: #5469d4;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 3px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .comment-write-btn {
         background-color: #5469d4;
         color: #ffffff;
         font-weight: bold;
@@ -84,6 +163,9 @@
         margin: 10px;
     }
     .submit-btn:hover {
+        background-color: #4455bb;
+    }
+    .comment-write-btn:hover {
         background-color: #4455bb;
     }
   </style>
@@ -100,31 +182,31 @@
     <a href="/board">게시판</a>
 </nav>
 <main>
-    <div class="tbl-header">
+    <div class="tbl-header" style="width: 100%">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr>
-                <th>번호</th>
-                <td th:text="${board.id}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">번호</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="${board.id}"></td>
             </tr>
             <tr>
-                <th>제목</th>
-                <td th:text="${board.boardTitle}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">제목</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="${board.boardTitle}"></td>
             </tr>
             <tr>
-                <th>작성자</th>
-                <td th:text="${board.boardWriter}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">작성자</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="${board.boardWriter}"></td>
             </tr>
             <tr>
-                <th>등록날짜</th>
-                <td th:text="${board.boardCreatedTime}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">등록날짜</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
             </tr>
             <tr>
-                <th>조회수</th>
-                <td th:text="${board.boardHits}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">조회수</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="${board.boardHits}"></td>
             </tr>
             <tr>
-                <th>내용</th>
-                <td th:text="${board.boardContents}"></td>
+                <th style="background-color: #5469d4; color: #ffffff; width: 20%">내용</th>
+                <td style="background-color: #ffffff; color: #4455bb" th:text="${board.boardContents}"></td>
             </tr>
         </table>
     </div>
@@ -136,11 +218,11 @@
     <div id="comment-write">
         <input type="text" id="commentWriter" placeholder="작성자">
         <input type="text" id="commentContents" placeholder="내용">
-        <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
+        <button class="comment-write-btn" id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
     </div>
 
     <!-- 댓글 출력 부분 -->
-    <div id="comment-list">
+    <div class="comment-list">
         <table>
             <tr>
                 <th>댓글번호</th>
@@ -152,7 +234,8 @@
                 <td th:text="${comment.id}"></td>
                 <td th:text="${comment.commentWriter}"></td>
                 <td th:text="${comment.commentContents}"></td>
-                <td th:text="${comment.commentCreatedTime}"></td>
+<!--                <td th:text="${comment.commentCreatedTime}"></td>-->
+                <td th:text="*{#temporals.format(comment.commentCreatedTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
             </tr>
         </table>
     </div>

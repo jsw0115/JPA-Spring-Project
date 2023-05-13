@@ -100,6 +100,7 @@
 <main>
     <div class="tbl-content">
         <form action="/member/update" method="post">
+<!--            <input type="hidden" th:value="${updateMember.id}" name="id"> <br>-->
             <input type="hidden" th:value="${updateMember.id}" name="id"> <br>
             <table>
                 <tr>
@@ -108,7 +109,7 @@
                 </tr>
                 <tr>
                     <td>비밀번호</td>
-                    <td><input type="text" th:value="${updateMember.memberPassword}" name="memberPassword"></td>
+                    <td><input type="password" th:value="${updateMember.memberPassword}" name="memberPassword"></td>
                 </tr>
                 <tr>
                     <td>이름</td>
