@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AJAX ex01</title>
+    <!-- jQuery CDN 주소 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous">
+    </script>
 </head>
 <body>
-
+    <button onclick="ex01Fn()">ex01 함수 호출</button>
 </body>
+<script>
+    const ex01Fn = () => {
+        $.ajax({
+            // 요청 방식 : get
+            // 요청 주소 : /ex01
+            type: "get",
+            url: "/ex01",
+            // 요청 성공 했을 때 실행 되는 부분
+            success: function(res) {
+                console.log("성공", res);
+            }
+            // 요청이 실패했을 때 실행되는 부분
+            error: function() {
+                console.log("실패");
+            }
+        })
+    }
+</script>
 </html>
