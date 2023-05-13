@@ -33,6 +33,37 @@
       margin: 0 auto;
       padding: 10px;
     }
+    table {
+      width: 100%;
+      table-layout: fixed;
+    }
+    .tbl-header {
+      background-color: #6772e5;
+    }
+    .tbl-content {
+      height: 300px;
+      margin-top: 0px;
+      border: none;
+      display: flex;
+      margin: 0 auto;
+    }
+    th {
+      padding: 20px 15px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 12px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 15px;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 12px;
+      color: #000;
+      border-bottom: solid 1px rgba(255,255,255,0.1);
+    }
     /* Footer */
     footer {
       background-color: #6772e5;
@@ -67,20 +98,22 @@
   <a href="/board">게시판</a>
 </nav>
 <main>
-  <table>
-    <tr>
-      <th>id</th>
-      <th>email</th>
-      <th>password</th>
-      <th>name</th>
-    </tr>
-    <tr>
-      <td th:text="${member.id}"></td>
-      <td th:text="${member.memberEmail}"></td>
-      <td th:text="${member.memberPassword}"></td>
-      <td th:text="${member.memberName}"></td>
-    </tr>
-  </table>
+  <div class="tbl-content">
+    <table>
+      <tr>
+        <th>아이디</th>
+        <th>이메일</th>
+        <th>비밀번호</th>
+        <th>이름</th>
+      </tr>
+      <tr>
+        <td th:text="${member.id}"></td>
+        <td th:text="${member.memberEmail}"></td>
+        <td th:text="${member.memberPassword}"></td>
+        <td th:text="${member.memberName}"></td>
+      </tr>
+    </table>
+  </div>
 </main>
 <!-- Footer -->
 <footer>

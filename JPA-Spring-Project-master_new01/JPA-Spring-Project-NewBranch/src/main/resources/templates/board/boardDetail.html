@@ -33,6 +33,37 @@
         margin: 0 auto;
         padding: 10px;
     }
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+    .tbl-header {
+        background-color: #6772e5;
+    }
+    .tbl-content {
+        height: 300px;
+        margin-top: 0px;
+        border: none;
+        display: flex;
+        margin: 0 auto;
+    }
+    th {
+        padding: 20px 15px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 12px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    td {
+        padding: 15px;
+        text-align: left;
+        vertical-align: middle;
+        font-weight: 300;
+        font-size: 12px;
+        color: #000;
+        border-bottom: solid 1px rgba(255,255,255,0.1);
+    }
     /* Footer */
     footer {
         background-color: #6772e5;
@@ -67,32 +98,34 @@
     <a href="/board">게시판</a>
 </nav>
 <main>
-    <table>
-        <tr>
-            <th>id</th>
-            <td th:text="${board.id}"></td>
-        </tr>
-        <tr>
-            <th>title</th>
-            <td th:text="${board.boardTitle}"></td>
-        </tr>
-        <tr>
-            <th>writer</th>
-            <td th:text="${board.boardWriter}"></td>
-        </tr>
-        <tr>
-            <th>date</th>
-            <td th:text="${board.boardCreatedTime}"></td>
-        </tr>
-        <tr>
-            <th>hits</th>
-            <td th:text="${board.boardHits}"></td>
-        </tr>
-        <tr>
-            <th>contents</th>
-            <td th:text="${board.boardContents}"></td>
-        </tr>
-    </table>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <th>번호</th>
+                <td th:text="${board.id}"></td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td th:text="${board.boardTitle}"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td th:text="${board.boardWriter}"></td>
+            </tr>
+            <tr>
+                <th>등록날짜</th>
+                <td th:text="${board.boardCreatedTime}"></td>
+            </tr>
+            <tr>
+                <th>조회수</th>
+                <td th:text="${board.boardHits}"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td th:text="${board.boardContents}"></td>
+            </tr>
+        </table>
+    </div>
     <button class="submit-btn" onclick="listReq()">목록</button>
     <button class="submit-btn" onclick="updateReq()">수정</button>
     <button class="submit-btn" onclick="deleteReq()">삭제</button>

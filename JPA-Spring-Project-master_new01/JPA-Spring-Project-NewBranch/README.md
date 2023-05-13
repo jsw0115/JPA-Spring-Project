@@ -30,6 +30,27 @@
 
 ---
 
+### 주제 
+- AJAX 다뤄보기
+
+### 사용 Dependency
+- Lombok
+- Spring Web
+- Thymeleaf
+
+### 주요 내용 
+- front 페이지에서 ajax 요청 보내고 controller에서 받는 방법
+- ResponseBody, ResponseEntity 리턴 활용
+- ajax에서 리턴을 받아 어떻게 javaScript로 활용하는지
+
+### ajax 활용
+- 이메일 또는 아이디 중복체크
+- 좋아요 또는 싫어요
+- 찜
+- 댓글 작성
+
+---
+
 #### ToDo App 만들기
 
 #### 설문조사 웹애플리케이션 만들기
