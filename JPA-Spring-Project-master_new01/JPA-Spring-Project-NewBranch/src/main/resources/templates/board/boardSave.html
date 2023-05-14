@@ -69,16 +69,16 @@
         margin-bottom: 10px;
     }
 
-    .tbl-form .submit-btn {
-        background-color: #5469d4;
-        color: #ffffff;
-        font-weight: bold;
-        border-radius: 3px;
-        height: 30px;
-        border: none;
-        cursor: pointer;
-        margin: 20px;
-    }
+<!--    .tbl-form .submit-btn {-->
+<!--        background-color: #5469d4;-->
+<!--        color: #ffffff;-->
+<!--        font-weight: bold;-->
+<!--        border-radius: 3px;-->
+<!--        height: 30px;-->
+<!--        border: none;-->
+<!--        cursor: pointer;-->
+<!--        margin: 20px;-->
+<!--    }-->
     /* Footer */
     footer {
         background-color: #6772e5;
@@ -95,6 +95,8 @@
         border: none;
         cursor: pointer;
         margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
     .submit-btn:hover {
         background-color: #4455bb;
@@ -120,6 +122,7 @@
             <tr>
                 <td>작성자 :</td>
                 <td><input type="text" name="boardWriter"></td>
+<!--                <td><input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly></td>-->
             </tr>
             <tr>
                 <td>비밀번호 :</td>
@@ -136,11 +139,14 @@
         </table>
 
     </div>
+    <br>
+    <br>
 <!--    <input type="text" name="boardWriter"> <br>-->
 <!--    <input type="text" name="boardPass"> <br>-->
 <!--    <input type="text" name="boardTitle"> <br>-->
 <!--    <textarea name="boardContents" col="30" rows="10"> </textarea> <br>-->
     <input class="submit-btn" type="submit" value="글작성">
+    <br>
 </form>
 </main>
 <!-- Footer -->

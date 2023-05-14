@@ -52,7 +52,7 @@ public class MemberController {
             return "main";
         } else {
             // login 실패
-            return "member/login";
+            return "member/incorrectEmailOrPasswd";
         }
     }
 
