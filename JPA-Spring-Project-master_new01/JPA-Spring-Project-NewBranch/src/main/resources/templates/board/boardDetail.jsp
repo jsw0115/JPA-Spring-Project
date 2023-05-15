@@ -311,11 +311,11 @@
                 <th>작성시간</th>
             </tr>
             <tr th:each="comment: ${commentList}">
-<!--                <td th:text="${comment.id}"></td>-->
                 <td th:text="${comment.commentWriter}"></td>
-                <td th:text="${comment.commentContents}"></td>
-<!--                <td th:text="${comment.commentCreatedTime}"></td>-->
                 <td th:text="*{#temporals.format(comment.commentCreatedTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
+            </tr>
+            <tr th:each="comment: ${commentList}">
+                <td th:text="${comment.commentContents}"></td>
             </tr>
         </table>
     </div>
