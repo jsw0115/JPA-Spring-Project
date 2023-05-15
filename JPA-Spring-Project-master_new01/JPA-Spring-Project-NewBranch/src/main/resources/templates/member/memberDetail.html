@@ -37,15 +37,27 @@
       width: 100%;
       table-layout: fixed;
     }
-    .tbl-header {
-      background-color: #6772e5;
-    }
     .tbl-content {
-      height: 300px;
-      margin-top: 0px;
-      border: none;
-      display: flex;
-      margin: 0 auto;
+        background-color: #6772e5;
+    }
+<!--    .tbl-content {-->
+<!--        height: 300px;-->
+<!--        margin-top: 0px;-->
+<!--        border: none;-->
+<!--        display: flex;-->
+<!--        margin: 0 auto;-->
+<!--    }-->
+    .tbl-content table {
+        background-color: #5469d4;
+        color: #ffffff;
+        border-collapse: collapse;
+    }
+
+    .tbl-content th,
+    .tbl-content td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #6772e5;
     }
     th {
       padding: 20px 15px;
@@ -96,21 +108,48 @@
   <a href="/member/update">내 정보 수정하기</a>
   <a href="/member/logout">로그아웃</a>
   <a href="/board">게시판</a>
+  <a href="/board">To-Do List</a>
+  <a href="/board">쇼핑몰 사이트</a>
+  <a href="/board">블로그 사이트</a>
+  <a href="/board">방명록 사이트</a>
+  <a href="/board">채팅 어플리케이션</a>
+  <a href="/board">인스타그램 클론 코딩</a>
+  <a href="/board">마이페이지</a>
 </nav>
 <main>
-  <div class="tbl-content">
-    <table>
+<!--  <div class="tbl-content">-->
+<!--    <table>-->
+<!--      <tr>-->
+<!--        <th>아이디</th>-->
+<!--        <th>이메일</th>-->
+<!--        <th>비밀번호</th>-->
+<!--        <th>이름</th>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td th:text="${member.id}"></td>-->
+<!--        <td th:text="${member.memberEmail}"></td>-->
+<!--        <td th:text="${member.memberPassword}"></td>-->
+<!--        <td th:text="${member.memberName}"></td>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </div>-->
+  <div class="tbl-content" style="width: 100%">
+    <table cellpadding="0" cellspacing="0" border="0">
+<!--      <tr>-->
+<!--        <th style="background-color: #5469d4; color: #ffffff; width: 20%">아이디</th>-->
+<!--        <td style="background-color: #ffffff; color: #4455bb" th:text=th:text="${member.id}"></td>-->
+<!--      </tr>-->
       <tr>
-        <th>아이디</th>
-        <th>이메일</th>
-        <th>비밀번호</th>
-        <th>이름</th>
+        <th style="background-color: #5469d4; color: #ffffff; width: 20%">이메일</th>
+        <td style="background-color: #ffffff; color: #4455bb" th:text="${member.memberEmail}"></td>
       </tr>
       <tr>
-        <td th:text="${member.id}"></td>
-        <td th:text="${member.memberEmail}"></td>
-        <td th:text="${member.memberPassword}"></td>
-        <td th:text="${member.memberName}"></td>
+        <th style="background-color: #5469d4; color: #ffffff; width: 20%">비밀번호</th>
+        <td type="password" style="background-color: #ffffff; color: #4455bb" th:text="${member.memberPassword}"></td>
+      </tr>
+      <tr>
+        <th style="background-color: #5469d4; color: #ffffff; width: 20%">이름</th>
+        <td style="background-color: #ffffff; color: #4455bb" th:text="${member.memberName}"></td>
       </tr>
     </table>
   </div>

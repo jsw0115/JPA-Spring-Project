@@ -1,5 +1,8 @@
 server:
   port: 8081
+#페이지 개수 설정
+page:
+  limit: 10
 
 #database 연동 설정
 spring:
@@ -9,6 +12,9 @@ spring:
     username: root
     password: jsw0101151!
   thymeleaf:
+    prefix: classpath:templates/
+    #    suffix: .html
+    suffix: .jsp
     cache: false
   # Spring Data JPA 설정
   jpa:

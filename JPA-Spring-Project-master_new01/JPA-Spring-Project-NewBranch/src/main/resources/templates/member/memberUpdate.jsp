@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -84,29 +86,6 @@
         .submit-btn:hover {
             background-color: #4455bb;
         }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d6d9dc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        input[type="submit"] {
-            background-color: #635bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
-            text-align: center;
-            align: center;
-        }
-        input[type="submit"]:hover {
-            background-color: #5249d3;
-        }
     </style>
 </head>
 <body>
@@ -119,31 +98,25 @@
     <a href="/member/update">내 정보 수정하기</a>
     <a href="/member/logout">로그아웃</a>
     <a href="/board">게시판</a>
-    <a href="/board">To-Do List</a>
-    <a href="/board">쇼핑몰 사이트</a>
-    <a href="/board">블로그 사이트</a>
-    <a href="/board">방명록 사이트</a>
-    <a href="/board">채팅 어플리케이션</a>
-    <a href="/board">인스타그램 클론 코딩</a>
-    <a href="/board">마이페이지</a>
 </nav>
 <main>
-    <div class="tbl-content" style="width: 100%">
+    <div class="tbl-content">
+    <h3>JSP 파일</h3>
         <form action="/member/update" method="post">
 <!--            <input type="hidden" th:value="${updateMember.id}" name="id"> <br>-->
             <input type="hidden" th:value="${updateMember.id}" name="id"> <br>
-            <table cellpadding="0" cellspacing="0" border="0">
+            <table>
                 <tr>
-                    <th style="background-color: #5469d4; color: #ffffff; width: 20%">이메일</th>
-                    <td style="background-color: #ffffff; color: #4455bb" ><input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly></td>
+                    <td>이메일</td>
+                    <td><input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly></td>
                 </tr>
                 <tr>
-                    <th style="background-color: #5469d4; color: #ffffff; width: 20%">비밀번호</th>
-                    <td style="background-color: #ffffff; color: #4455bb" ><input type="password" th:value="${updateMember.memberPassword}" name="memberPassword"></td>
+                    <td>비밀번호</td>
+                    <td><input type="password" th:value="${updateMember.memberPassword}" name="memberPassword"></td>
                 </tr>
                 <tr>
-                    <th style="background-color: #5469d4; color: #ffffff; width: 20%">이름</th>
-                    <td style="background-color: #ffffff; color: #4455bb" ><input type="text" th:value="${updateMember.memberName}" name="memberName"></td>
+                    <td>이름</td>
+                    <td><input type="text" th:value="${updateMember.memberName}" name="memberName"></td>
                 </tr>
             </table>
             <input type="submit" value="정보수정" class="submit-btn">

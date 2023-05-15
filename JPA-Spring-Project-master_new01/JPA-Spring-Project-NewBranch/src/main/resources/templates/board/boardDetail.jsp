@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -254,18 +256,14 @@
 </header>
 <!-- Navigation -->
 <nav>
+    <h3>JSP 파일</h3>
     <a href="/member/update">내 정보 수정하기</a>
     <a href="/member/logout">로그아웃</a>
     <a href="/board">게시판</a>
-    <a href="/board">To-Do List</a>
-    <a href="/board">쇼핑몰 사이트</a>
-    <a href="/board">블로그 사이트</a>
-    <a href="/board">방명록 사이트</a>
-    <a href="/board">채팅 어플리케이션</a>
-    <a href="/board">인스타그램 클론 코딩</a>
-    <a href="/board">마이페이지</a>
+    <a href=""></a>
 </nav>
 <main>
+    <h3>JSP 파일</h3>
     <div class="tbl-header" style="width: 100%">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -312,10 +310,10 @@
                 <th>내용</th>
                 <th>작성시간</th>
             </tr>
-            <tr style="width: 100%" th:each="comment: ${commentList}">
+            <tr th:each="comment: ${commentList}">
 <!--                <td th:text="${comment.id}"></td>-->
-                <td style="width: 30%" th:text="${comment.commentWriter}"></td>
-                <td style="width: 60%" th:text="${comment.commentContents}"></td>
+                <td th:text="${comment.commentWriter}"></td>
+                <td th:text="${comment.commentContents}"></td>
 <!--                <td th:text="${comment.commentCreatedTime}"></td>-->
                 <td th:text="*{#temporals.format(comment.commentCreatedTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
             </tr>

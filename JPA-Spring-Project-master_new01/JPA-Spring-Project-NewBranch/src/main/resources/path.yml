@@ -1,7 +1,8 @@
 spring:
   thymeleaf:
     prefix: classpath:templates/
-    suffix: .html
+#    suffix: .html
+    suffix: .jsp
     cache: false
 #페이지 개수 설정
 page:

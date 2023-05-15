@@ -54,11 +54,17 @@
             background-color: #5249d3;
         }
         .terms {
-            font-size: 14px;
-            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 1.5rem;
         }
+
         .terms a {
-            color: #5f6368;
+            color: #5469d4;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
             text-decoration: underline;
         }
     </style>
@@ -88,6 +94,9 @@
 
 
 </form>
+<div class="terms">
+    <!--a href="#">비밀번호 찾기</a> |--> <a href="/member/login">로그인</a>
+</div>
 </body>
 <script th:inline="javascript">
     const emailCheck = () => {
