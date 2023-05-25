@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -313,8 +311,6 @@
             <tr th:each="comment: ${commentList}">
                 <td th:text="${comment.commentWriter}"></td>
                 <td th:text="*{#temporals.format(comment.commentCreatedTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
-            </tr>
-            <tr th:each="comment: ${commentList}">
                 <td th:text="${comment.commentContents}"></td>
             </tr>
         </table>
