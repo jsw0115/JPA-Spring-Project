@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.7-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'war'
 }
 
 group = 'com.spring'
@@ -32,8 +33,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-//	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"	// 톰캣이 jsp 파일을 컴파일 할 수 있도록 도움 주는 라이브러리
-//	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'	// jstl 사용 위한 라이브러리
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"	// 톰캣이 jsp 파일을 컴파일 할 수 있도록 도움 주는 라이브러리
+	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'	// jstl 사용 위한 라이브러리
+	// providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 
 tasks.named('test') {

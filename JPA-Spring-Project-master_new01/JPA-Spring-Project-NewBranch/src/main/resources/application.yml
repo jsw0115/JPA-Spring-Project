@@ -8,7 +8,7 @@ page:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/jpabegin?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: jsw0101151!
   thymeleaf:
